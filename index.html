@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sri Portfolio</title>
+  <title>Srinithi Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,16 +18,25 @@
         <li>About</li>
         <li>Projects</li>
         <li>Contact</li>
+        <button id="themeToggle">🌙 Toggle Theme</button>
+        <body class="dark"></body>
       </ul>
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
+
+  <div class="hero-content">
     <h1>Hi, I'm Sri 👋</h1>
-    <p>Front-End Developer | UI Designer</p>
-    <button>View My Work</button>
-  </section>
+    <p id="typing"></p>
+
+    <div class="hero-buttons">
+      <button>Hire Me</button>
+      <button>View Projects</button>
+    </div>
+  </div>
+
+</section>
 
   <!-- About Section -->
   <section class="about">
@@ -37,30 +46,55 @@
     </p>
   </section>
 
-</body>
-</html>
+
+
 <!-- Projects Section -->
 <section class="projects">
-  <h2>My Projects</h2>
+  <h2>My Learning Projects</h2>
 
   <div class="project-container">
 
     <div class="project-card">
       <h3>Portfolio Website</h3>
-      <p>My first personal portfolio built using HTML & CSS.</p>
+      <p>
+        Built using HTML, CSS, JavaScript. Learned flexbox, cards, and responsive design.
+      </p>
     </div>
 
     <div class="project-card">
-      <h3>Landing Page</h3>
-      <p>Simple responsive landing page design.</p>
+      <h3>CSS Practice Projects</h3>
+      <p>
+        Practiced flexbox, grid, hover effects, and animations step by step with guidance.
+      </p>
     </div>
 
     <div class="project-card">
-      <h3>To-Do App</h3>
-      <p>Basic JavaScript project for task management.</p>
+      <h3>JavaScript Learning</h3>
+      <p>
+        Learned DOM, events, buttons, theme toggle, and basic interactivity.
+      </p>
     </div>
 
   </div>
+</section>
+<section class="skills">
+  <h2>My Skills</h2>
+
+  <div class="skill">
+    <p>HTML</p>
+    <div class="bar"><div class="html"></div></div>
+  </div>
+
+  <div class="skill">
+    <p>CSS</p>
+    <div class="bar"><div class="css"></div></div>
+  </div>
+
+  <div class="skill">
+    <p>JavaScript</p>
+    <div class="bar"><div class="js"></div></div>
+  </div>
+
 </section>
 <!-- Contact Section -->
 <section class="contact">
@@ -74,3 +108,287 @@
     <button type="submit">Send</button>
   </form>
 </section>
+<section class="journey">
+  <h2>My Journey</h2>
+  <p>
+    I started learning web development step by step with HTML, CSS and JavaScript.
+    I built small projects and improved daily with practice.
+  </p>
+</section>
+<script>
+  // Button click effect
+  document.querySelector("button").addEventListener("click", function () {
+    alert("Thanks for visiting my portfolio 💻🔥");
+  });
+</script>
+<script>
+  const buttons = document.querySelectorAll("button");
+
+  buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      alert("Action triggered 💻✨");
+    });
+  });
+</script>
+
+<section class="skills">
+  <h2>My Skills</h2>
+
+  <p>HTML</p>
+  <div class="bar"><div class="html"></div></div>
+
+  <p>CSS</p>
+  <div class="bar"><div class="css"></div></div>
+
+  <p>JavaScript</p>
+  <div class="bar"><div class="js"></div></div>
+</section>
+<section class="hire">
+  <h2>Hire Me</h2>
+
+  <p>I am available for freelance web development work.</p>
+
+  <a href="https://github.com" target="_blank">GitHub</a><br>
+  <a href="https://linkedin.com" target="_blank">LinkedIn</a><br>
+  <a href="https://wa.me/91XXXXXXXXXX">WhatsApp Me</a>
+
+</section>
+<script>
+let text = "Front-End Developer | UI Designer";
+let i = 0;
+
+function typing() {
+  if (i < text.length) {
+    document.querySelector(".hero p").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 100);
+  }
+}
+
+typing();
+</script>
+<script>
+const btn = document.getElementById("themeToggle");
+
+btn.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+  document.body.classList.toggle("light");
+});
+</script>
+
+<script>
+
+const texts=[
+
+"Frontend Developer",
+"UI Designer",
+"Freelancer"
+
+];
+
+let textIndex=0;
+let charIndex=0;
+
+function type(){
+
+ let current=
+ texts[textIndex];
+
+ if(charIndex<
+ current.length){
+
+ document.getElementById(
+ "typing"
+ ).innerHTML+=
+ current.charAt(charIndex);
+
+ charIndex++;
+
+ setTimeout(type,100);
+
+ }
+
+ else{
+
+ setTimeout(()=>{
+
+ document.getElementById(
+ "typing"
+ ).innerHTML="";
+
+ charIndex=0;
+
+ textIndex=
+ (textIndex+1)
+ %texts.length;
+
+ type();
+
+ },1500);
+
+ }
+
+}
+
+type();
+
+</script>
+
+</script>
+<section class="about hidden">
+
+<section class="projects hidden">
+
+<section class="skills hidden">
+
+<section class="contact hidden">
+  <script>
+
+const observer = new IntersectionObserver((entries)=>{
+
+ entries.forEach((entry)=>{
+
+   if(entry.isIntersecting){
+
+     entry.target.classList.add("show");
+
+   }
+
+ });
+
+});
+
+const hiddenElements =
+document.querySelectorAll(".hidden");
+
+hiddenElements.forEach((el)=>
+observer.observe(el)
+);
+
+</script>
+<ul class="nav-links">
+  <li><a href="#home">Home</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#projects">Projects</a></li>
+  <li><a href="#skills">Skills</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+<section id="home" class="hero">
+<section id="about" class="about">
+<section id="projects" class="projects">
+<section id="skills" class="skills">
+<section id="contact" class="contact">
+  <script>
+
+const sections=document.querySelectorAll("section");
+const navLinks=document.querySelectorAll(".nav-links a");
+
+window.addEventListener("scroll",()=>{
+
+ let current="";
+
+ sections.forEach(section=>{
+
+   const sectionTop=section.offsetTop;
+
+   if(scrollY >= sectionTop-200){
+      current=section.getAttribute("id");
+   }
+
+ });
+
+ navLinks.forEach(link=>{
+
+   link.classList.remove("active");
+
+   if(link.getAttribute("href")==="#"+current){
+      link.classList.add("active");
+   }
+
+ });
+
+});
+
+</script>
+<a href="#contact" class="hire-btn">
+   💼 Hire Me
+</a>
+<footer>
+   <p>© 2026 Sri | Built with ❤️ using HTML, CSS & JavaScript</p>
+</footer>
+<div id="progressBar"></div>
+<script>
+
+window.onscroll=function(){
+
+ let scrollTop=
+ document.documentElement.scrollTop;
+
+ let height=
+ document.documentElement.scrollHeight-
+ document.documentElement.clientHeight;
+
+ let scrolled=
+ (scrollTop/height)*100;
+
+ document.getElementById(
+ "progressBar"
+ ).style.width=scrolled+"%";
+
+}
+
+</script>
+<button id="topBtn">⬆</button>
+<script>
+
+let topBtn=
+document.getElementById("topBtn");
+
+window.addEventListener(
+"scroll",()=>{
+
+if(window.scrollY>300){
+
+topBtn.style.display="block";
+
+}else{
+
+topBtn.style.display="none";
+
+}
+
+});
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+behavior:"smooth"
+
+});
+
+};
+
+</script>
+<form action="https://formsubmit.co/srinithi18092006@gmail.com" method="POST">
+
+<input type="text"
+placeholder="Name"
+required>
+
+<input type="email"
+placeholder="Email"
+required>
+
+<textarea
+placeholder="Message">
+</textarea>
+
+<button type="submit">
+Send
+</button>
+
+</form>
+</body>
+</html>
